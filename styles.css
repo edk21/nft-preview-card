@@ -7,36 +7,56 @@ body{
 	font-family: "Outfit", sans-serif;
 }
 .card_container{
-	height: 400px;
-	width: 250px;
+	height: 600px;
+	width: 350px;
 	border-radius: 10px;
 	background: hsl(216, 50%, 16%);
 	margin-bottom: 30px;
+	position: relative;
 }
 .card_image{
-	width: 100%;
-	height: 200px;
-	display: flex;
-	border-radius: 20px;
-	margin-bottom: 5px;
-}
-.card_image img{
-	width: 100%;
-	height: 100%;
-	padding: 20px;
-	border-radius: 20px;
-	object-fit: cover;
-	cursor: pointer;
+	height: 50%;
+	margin: 20px;
+	background-image: url("images/image-equilibrium.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	inset: 0 0 0 0;
+	border-radius: 10px;
+	position: absolute;
 }
 
-.card_container h1 {
+.card_image:after {
+	content: '';
+	height: 100%;
+	border-radius: 10px;
+	position: absolute;
+	background-color: hsl(178, 100%, 50%);
+	border-radius: 1rem;
+	background-image: url('images/icon-view.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	inset: 0 0 0 0;
+	transition: 0.15s linear;
+	opacity: 0;
+}
+.card_image:hover:after{
+	opacity: 0.7;
+}
+
+.card_container .card_text{
+	position: absolute;
+	top: 55%;
+}
+.card_container .card_text h1 {
 	color: hsl(0, 0%, 100%);
-	font-size: 0.8rem;
+	font-size: 1rem;
 	padding: 20px 0px 0 20px;
 }
-.card_container > p {
+.card_container .card_text p {
 	padding: 5px 20px 0 20px;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	color: hsl(215, 51%, 70%);
 }
 .card_info{
@@ -45,17 +65,33 @@ body{
 	justify-content: space-between;
 	border-bottom-
 	padding: 0 20px 0 20px;
+	position: absolute;
+	top: 75%;
 }
-.card_info .logo{
+.card_info .logo_left, .logo_right{
 	display: flex;
 	align-items: center;
 }
-.card_info .logo img{
+.card_info .logo_left img{
+	height: 25px;
 	padding: 0 0 0 20px;
 }
-.card_info .logo > p{
+.card_info .logo_left > p{
 	color: hsl(178, 100%, 50%);
-	font-size: 0.7rem;
+	font-size: 1rem;
+	margin-left: 5px;
+	padding: 0 20px 0 0;
+}
+.card_info .logo_right {
+	margin-left: 70px;
+}
+.card_info .logo_right img{
+	height: 25px;
+	padding: 0 0 0 20px;
+}
+.card_info .logo_right > p{
+	color: hsl(178, 100%, 50%);
+	font-size: 1rem;
 	margin-left: 5px;
 	padding: 0 20px 0 0;
 }
@@ -66,20 +102,107 @@ body{
 	border-bottom: 1px solid hsl(215, 32%, 27%);
 	width: 85%;
 	margin-left: 20px;
+	position: absolute;
+	top: 85%;
 }
 .card_footer{
-	padding: 5px 20px 5px 20px;
+	padding: 10px 20px 5px 20px;
 	display: flex;
 	align-items: center;
+	position: absolute;
+	top: 85%;
 }
 .card_footer > img{
-	height: 20px;
+	height: 30px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	cursor: pointer;
 }
+
 .card_footer > p{
-	font-size: 0.8rem;
+	font-size: 1rem;
 	margin-left: 10px;
 	color: hsl(0, 0%, 100%);
 }
 .card_footer > p > span{
 	color: hsl(215, 51%, 70%);
+}
+
+@media screen and (max-width: 768px){
+	.card_container{
+		height: 500px;
+		width: 300px;
+		border-radius: 10px;
+		background: hsl(216, 50%, 16%);
+		margin-bottom: 30px;
+		position: relative;
+	}
+	.card_info .logo_right {
+		margin-left: 50px;
+		padding-top: 5px;
+	}
+	.card_info .logo_left img{
+		height: 20px;
+		padding: 5px 0 0 20px;
+	}
+	.card_info .logo_left > p{
+		color: hsl(178, 100%, 50%);
+		font-size: 0.9rem;
+		margin-left: 5px;
+		padding: 5px 20px 0 0;
+	}
+
+	.card_info .logo_right img{
+		height: 20px;
+		padding: 5px 0 0 20px;
+	}
+	.card_info .logo_right > p{
+		color: hsl(178, 100%, 50%);
+		font-size: 0.9rem;
+		margin-left: 5px;
+		padding: 5px 20px 0 0;
+	}
+}
+@media screen and (max-width: 280px){
+	.card_container{
+		height: 500px;
+		width: 250px;
+		border-radius: 10px;
+		background: hsl(216, 50%, 16%);
+		margin-bottom: 30px;
+		position: relative;
+	}
+	.card_info .logo_right {
+		margin-left: -5px;
+		padding-top: 5px;
+	}
+	.card_info .logo_left img{
+		height: 20px;
+		padding: 5px 0 0 20px;
+	}
+	.card_info .logo_left > p{
+		color: hsl(178, 100%, 50%);
+		font-size: 0.9rem;
+		margin-left: 5px;
+		padding: 5px 20px 0 0;
+	}
+
+	.card_info .logo_right img{
+		height: 20px;
+		padding: 5px 0 0 20px;
+	}
+	.card_info .logo_right > p{
+		color: hsl(178, 100%, 50%);
+		font-size: 0.9rem;
+		margin-left: 5px;
+		padding: 5px 20px 0 0;
+	}
+	.card_footer > p{
+		font-size: 0.8rem;
+		margin-left: 10px;
+		color: hsl(0, 0%, 100%);
+	}
+	.card_footer > p > span{
+		color: hsl(215, 51%, 70%);
+	}
 }
